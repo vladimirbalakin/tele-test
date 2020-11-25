@@ -17,10 +17,10 @@ def startMess(message):
 def newGame(message):
     bot.send_message(message.chat.id, "Great. Choose your turn", reply_markup = keyboard)
 
-@bot.message_handler(commands = ['text'])
+@bot.message_handler(content_types = ['text'])
 def resived(message):
-    print(message)
-    if message in gameboard:
+    #print(message)
+    if message.text in gameboard:
         answer = randint(0, 2)
         bot.send_message(message.chat.id, gameboard[answer])
 @bot.message_handler(content_types = ['sticker'])
